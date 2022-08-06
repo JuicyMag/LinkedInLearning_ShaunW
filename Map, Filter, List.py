@@ -22,5 +22,18 @@ def subtract_from_list(x):
 
 double_list_fucntion = list(map(double, numbers_list))
 subtract_from_list = list(map(subtract_from_list, numbers_list))
-print(double_list_fucntion)
-print(subtract_from_list)
+# print(double_list_fucntion)
+# print(subtract_from_list)
+
+
+#FILTERING
+#used when you want to find some specific piece of information in a list or iterable
+
+#write a program to find if elements are even or not
+
+def is_even(x):
+    if x%2 == 0:
+        return x
+
+even_list = list(filter(is_even, numbers_list))
+print(even_list)
