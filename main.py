@@ -61,23 +61,23 @@ print(combine_5_and_9(subtract, 5, 7))
 print("I am testing Git")
 
 
-def count_to_x(x):
-    for y in range (x):
-        print(y)
-# def return_name(str1, str2):
-#     return f'{str1} {str2}'
+# def count_to_x(x):
+#     for y in range (x):
+#         print(y)
+# # def return_name(str1, str2):
+# #     return f'{str1} {str2}'
+# #
+# # print(return_name("Magnus", "Herweyer"))
 #
-# print(return_name("Magnus", "Herweyer"))
-
-# def create_printer():
-#     def printer():
-#         print("hello functional")
-#     return printer()
+# # def create_printer():
+# #     def printer():
+# #         print("hello functional")
+# #     return printer()
+# #
+# # my_printer = create_printer()
+# # my_printer
 #
-# my_printer = create_printer()
-# my_printer
-
-count_to_x(10)
+# count_to_x(5000)
 
 #
 # def double(x):
@@ -90,15 +90,45 @@ count_to_x(10)
 #     return x*4
 
 
-def create_multiplier(a):
-    def multiplier(x):
-        return x*a
-    return multiplier
+# def create_multiplier(a):
+#     def multiplier(x):
+#         return x*a
+#     return multiplier
+#
+# double = create_multiplier(2)
+# triple = create_multiplier(3)
+# quadruple = create_multiplier(4)
+#
+# print(double(3))
+# print(triple(3))
+# print(quadruple(3))
 
-double = create_multiplier(2)
-triple = create_multiplier(3)
-quadruple = create_multiplier(4)
+#example of closure
+def create_printer():
+    my_fav_number = 42
+    def printer():
+        print(f'My favortite number is {my_fav_number}')
+    return printer
 
-print(double(3))
-print(triple(3))
-print(quadruple(3))
+my_printer = create_printer()
+print(my_printer())
+
+def create_counter():
+    count = 0
+
+    def get_count():
+        return count
+
+    def increment_count():
+        #first time ever seeing the idea of "nonlocal"
+        #tells python the count var we are using here is the same in the outer scope
+        nonlocal count
+        count += 1
+
+    return (get_count, increment_count)
+
+get_count, increment_count = create_counter()
+
+print(get_count())
+increment_count
+print(get_count)
