@@ -60,6 +60,10 @@ def combine_5_and_9(func, x,y):
 print(combine_5_and_9(subtract, 5, 7))
 print("I am testing Git")
 
+
+def count_to_x(x):
+    for y in range (x):
+        print(y)
 # def return_name(str1, str2):
 #     return f'{str1} {str2}'
 #
@@ -73,6 +77,7 @@ print("I am testing Git")
 # my_printer = create_printer()
 # my_printer
 
+count_to_x(10)
 
 #
 # def double(x):
