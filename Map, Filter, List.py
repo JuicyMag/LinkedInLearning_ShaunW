@@ -1,3 +1,5 @@
+from functools import reduce
+
 #mapping
 # map() can be called on any list or iterable
 
@@ -8,7 +10,7 @@ double_list = []
 
 for num in numbers_list:
     double_list.append(num*2)
-print(double_list)
+# print(double_list)
 
 #above is the old way. Below is using map()
 
@@ -36,4 +38,25 @@ def is_even(x):
         return x
 
 even_list = list(filter(is_even, numbers_list))
-print(even_list)
+# print(even_list)
+
+
+#Lambdas
+#one line, unnamed functionas that can be defined inside larger expressions
+#example: lambda x,y: x+y
+
+double_list_with_lambda = list(map(lambda x: x*2, numbers_list))
+print(double_list_with_lambda)
+
+
+#list comprehensions
+#reduce - take a list and reduce it down to a single value (a sum or average)
+
+#in order for get_sum to work you need to make a function that takes the accumulated value and current value
+
+def get_sum(acc, x):
+    print(f'acc is {acc}',f'x is {x}' )
+    return x + acc
+
+summed_list = reduce(get_sum, numbers_list)
+print(summed_list)
