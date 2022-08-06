@@ -67,3 +67,47 @@ summed_list = reduce(get_sum, numbers_list)
 min_value = reduce(get_min, numbers_list)
 print(min_value)
 # print(summed_list)
+
+employees = [{
+    'name': 'Jane',
+    'salary':90000,
+    'job_title': 'developer'
+}, {
+    'name': 'Bill',
+    'salary':50000,
+    'job_title': 'writer'
+}, {
+    'name': 'Cathy',
+    'salary':120000,
+    'job_title': 'executive'
+}, {
+    'name': 'Jeffrey',
+    'salary': 48500,
+    'job_title': 'product owner'
+}, {
+    'name': 'Steve',
+    'salary': 100000,
+    'job_title': 'developer'
+}
+]
+
+def is_developer(employee):
+    return employee['job_title'] == 'developer'
+
+developers = list(filter(is_developer, employees))
+
+def get_salary(employees):
+    return employees['salary']
+# print(developers)
+
+developer_salaries = list(map(get_salary,developers))
+print(developer_salaries)
+
+def get_sum(acc,x):
+    return acc + x
+
+total_dev_salary = reduce(get_sum, developer_salaries)
+print(total_dev_salary)
+
+average_dev_salary = total_dev_salary/len(developer_salaries)
+print(average_dev_salary)
