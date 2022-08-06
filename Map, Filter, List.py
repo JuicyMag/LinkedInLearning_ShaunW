@@ -3,7 +3,7 @@ from functools import reduce
 #mapping
 # map() can be called on any list or iterable
 
-numbers_list = [0,1,2,3,4,5,6,7,8,9]
+numbers_list = [1,2,3,4,5,6,7,8,9]
 
 #in order to double each number in a list, follow below code
 double_list = []
@@ -46,6 +46,8 @@ even_list = list(filter(is_even, numbers_list))
 #example: lambda x,y: x+y
 
 double_list_with_lambda = list(map(lambda x: x*2, numbers_list))
+times_5 = list(map(lambda x: x*5, numbers_list))
+print(times_5)
 print(double_list_with_lambda)
 
 
@@ -58,5 +60,10 @@ def get_sum(acc, x):
     print(f'acc is {acc}',f'x is {x}' )
     return x + acc
 
+def get_min(acc, x):
+    return min(acc, x)
+
 summed_list = reduce(get_sum, numbers_list)
-print(summed_list)
+min_value = reduce(get_min, numbers_list)
+print(min_value)
+# print(summed_list)
